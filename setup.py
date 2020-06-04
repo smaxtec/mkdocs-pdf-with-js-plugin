@@ -43,6 +43,7 @@ setup(
         'Programming Language :: Python :: 3.7'
     ],
     packages=find_packages(),
+    include_package_data=True,
     entry_points={
         'mkdocs.plugins': [
             'pdf-with-js = pdf_with_js.plugin:PdfWithJS'
