@@ -1,0 +1,57 @@
+
+div.download-btn {
+    text-align: right;
+}
+
+@page {
+    size: a4 portrait;
+    margin: 25mm 10mm 25mm 10mm;
+    counter-increment: page;
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    white-space: pre;
+    color: grey;
+    @top-left {
+        font-size: x-small;
+        content: 'smaXtec';
+    }
+    @top-center {
+        font-size: x-small;
+        content: string(chapter);
+    }
+    @top-right {
+        font-size: x-small;
+        content: 'Page ' counter(page);
+    }
+}
+
+@media print {
+
+    div.download-btn {
+        display: none;
+    }
+
+    .md-typeset table:not([class]) {
+        display: block;
+        border: none;
+    }
+
+    img {
+        width: 100%;
+        page-break-inside:avoid;
+        page-break-after:avoid;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after:avoid;
+        page-break-inside:avoid;
+    }
+
+    table, pre {
+        page-break-inside:avoid
+    }
+
+    ul, ol, dl {
+        page-break-before:avoid
+    }
+
+}
