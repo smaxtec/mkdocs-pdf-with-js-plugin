@@ -1,0 +1,2 @@
+include LICENSE
+recursive-include pdf_with_js *.css
