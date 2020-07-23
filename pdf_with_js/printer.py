@@ -86,6 +86,8 @@ class Printer():
         webdriver_options = Options()
         webdriver_options.add_argument('--headless')
         webdriver_options.add_argument('--disable-gpu')
+        webdriver_options.add_argument('--no-sandbox')
+        webdriver_options.add_argument('--disable-dev-shm-usage')
         return webdriver.Chrome(options=webdriver_options)
 
     def _set_print_options(self):
