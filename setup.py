@@ -1,3 +1,5 @@
+import subprocess
+
 from os import path
 from setuptools import setup, find_packages
 
@@ -13,7 +15,7 @@ def load_file(filename):
 
 setup(
     name='mkdocs-pdf-with-js-plugin',
-    version='0.1.0',
+    version=subprocess.check_output(["git", "describe", "--tags"]).decode().strip(),
     description='A MkDocs plugin that exports your documentation as PDF with rendered JavaScript content.',
     long_description=load_file('README.md'),
     long_description_content_type="text/markdown",
