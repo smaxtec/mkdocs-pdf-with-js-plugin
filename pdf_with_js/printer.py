@@ -48,7 +48,10 @@ class Printer():
         stylesheet = os.path.join(self.plugin_path, "stylesheets", "printer.css")
         with open(stylesheet, 'r') as file:
             style = file.read()
-
+        
+        if not soup.style:
+            head = soup.head
+            head.append(soup.new_tag('style', type='text/css'))
         soup.style.append(style)
         return soup
 
@@ -59,7 +62,9 @@ class Printer():
         div = soup.new_tag("div")
         div['class'] = 'download-btn'
         div.append(a)
-
+        
+        if not soup.article:
+            soup.append(soup.new_tag('article'))
         soup.article.insert(0, div)
         return soup
 
